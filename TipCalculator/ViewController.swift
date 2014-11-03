@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var billField: UITextField!
     
+    @IBOutlet weak var tipAmount: UILabel!
+    
     @IBOutlet weak var totalLabel: UILabel!
     
     @IBOutlet weak var tipControl: UISegmentedControl!
@@ -23,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-
+        tipAmount.text = "$0.00"
         totalLabel.text = "$0.00"
     }
 
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
         
-  
+        tipAmount.text = String(format: "%.2f", tip)
         totalLabel.text = String(format: "%.2f", total)
     }
 
